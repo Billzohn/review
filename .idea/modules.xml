@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectModuleManager">
@@ -5,4 +6,13 @@
       <module fileurl="file://$PROJECT_DIR$/review.iml" filepath="$PROJECT_DIR$/review.iml" />
     </modules>
   </component>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/review.iml" filepath="$PROJECT_DIR$/.idea/review.iml" />
+    </modules>
+  </component>
+>>>>>>> 52fe6f300a3902dcb327f39259e24219ce342fea
 </project>
