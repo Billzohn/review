@@ -1,0 +1,42 @@
+package cn.springmvc.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import cn.springmvc.dao.XXXXXXMapper;
+import cn.springmvc.model.XXXXXX;
+import cn.springmvc.model.vo.PaginationVo;
+
+@Service
+public class XXXXXXService{
+
+	@Autowired
+	private XXXXXXMapper XXXXXXMapper;
+	
+	public int deleteByPrimaryKey(Integer id) {
+		return XXXXXXMapper.deleteByPrimaryKey(id);
+	}
+
+	public int insert(XXXXXX record) {
+		return XXXXXXMapper.insert(record);
+	}
+
+	public XXXXXX selectByPrimaryKey(Integer id) {
+		return XXXXXXMapper.selectByPrimaryKey(id);
+	}
+
+	public int updateByPrimaryKey(XXXXXX record) {
+		return XXXXXXMapper.updateByPrimaryKey(record);
+	}
+	
+	public PaginationVo<XXXXXX> getPaginationInfo(int pagenum,int pagesize){
+		//int pagenum是当前的页码,int pagesize是每页显示的数据数量
+		PaginationVo<XXXXXX> pageVo=new PaginationVo<XXXXXX>();
+		//一定要在setPageCount()方法之后执行setPageNum
+		pageVo.setCount(XXXXXXMapper.selectCount());
+		pageVo.setRows(pagesize);
+		pageVo.setPageNum(pagenum);
+		pageVo.setList(XXXXXXMapper.selectListPage(pageVo.getOffset(), pageVo.getRows()));
+		return pageVo;
+	}
+}

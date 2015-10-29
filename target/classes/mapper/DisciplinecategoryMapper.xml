@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.springmvc.dao.DisciplinecategoryMapper" >
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.Disciplinecategory" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="creat_time" property="creatTime" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="demoone" property="demoone" jdbcType="VARCHAR" />
+    <result column="demotwo" property="demotwo" jdbcType="VARCHAR" />
+    <result column="demothree" property="demothree" jdbcType="VARCHAR" />
+    <result column="demofour" property="demofour" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, creat_time, creator, demoone, demotwo, demothree, demofour
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from disciplinecategory
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from disciplinecategory
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.Disciplinecategory" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into disciplinecategory (name, creat_time, creator, 
+      demoone, demotwo, demothree, 
+      demofour)
+    values (#{name,jdbcType=VARCHAR}, #{creatTime,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{demoone,jdbcType=VARCHAR}, #{demotwo,jdbcType=VARCHAR}, #{demothree,jdbcType=VARCHAR}, 
+      #{demofour,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.Disciplinecategory" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into disciplinecategory
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="creatTime != null" >
+        creat_time,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="demoone != null" >
+        demoone,
+      </if>
+      <if test="demotwo != null" >
+        demotwo,
+      </if>
+      <if test="demothree != null" >
+        demothree,
+      </if>
+      <if test="demofour != null" >
+        demofour,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null" >
+        #{creatTime,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="demoone != null" >
+        #{demoone,jdbcType=VARCHAR},
+      </if>
+      <if test="demotwo != null" >
+        #{demotwo,jdbcType=VARCHAR},
+      </if>
+      <if test="demothree != null" >
+        #{demothree,jdbcType=VARCHAR},
+      </if>
+      <if test="demofour != null" >
+        #{demofour,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.Disciplinecategory" >
+    update disciplinecategory
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null" >
+        creat_time = #{creatTime,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="demoone != null" >
+        demoone = #{demoone,jdbcType=VARCHAR},
+      </if>
+      <if test="demotwo != null" >
+        demotwo = #{demotwo,jdbcType=VARCHAR},
+      </if>
+      <if test="demothree != null" >
+        demothree = #{demothree,jdbcType=VARCHAR},
+      </if>
+      <if test="demofour != null" >
+        demofour = #{demofour,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.Disciplinecategory" >
+    update disciplinecategory
+    set name = #{name,jdbcType=VARCHAR},
+      creat_time = #{creatTime,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      demoone = #{demoone,jdbcType=VARCHAR},
+      demotwo = #{demotwo,jdbcType=VARCHAR},
+      demothree = #{demothree,jdbcType=VARCHAR},
+      demofour = #{demofour,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
